@@ -6,6 +6,14 @@ PRIMEVC_DIR="${PRJROOT}/PrimeVC"
 ASSETS_DIR="${PRJROOT}/assets"
 EXTRAOPTS=()
 
+if [ ! -f $BUILDSCRIPTDIR/environment.sh ]; then
+  echo "First create $BUILDSCRIPTDIR/environment.sh that contains
+  export AIR=/path/to/AIR-SDK"
+  exit;
+else
+	source $BUILDSCRIPTDIR/environment.sh
+fi
+
 # Parse arguments. All unrecognized options are passed to Haxe.
 args=("$@");
 i=0;
@@ -26,5 +34,6 @@ if test -z "${DEBUG}${RELEASE}"; then
 "
 else
 	cd "${PRJROOT}";
-	time haxe ${DEBUG:+build/debug.hxml} ${RELEASE:+build/release.hxml} "${EXTRAOPTS[@]}" && open "bin-${DEBUG:+debug}${RELEASE:+release}/"*.swf
+	time haxe ${DEBUG:+build/debug.hxml} ${RELEASE:+build/release.hxml} "${EXTRAOPTS[@]}" &&\
+	"$AIR/bin/adl" bin-debug/application.xml
 fi;
