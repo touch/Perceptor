@@ -34,6 +34,8 @@ if test -z "${DEBUG}${RELEASE}"; then
 "
 else
 	cd "${PRJROOT}";
+	
+	"${PRIMEVC_DIR}/build/build-styles" styles/perceptor
 	time haxe ${DEBUG:+build/debug.hxml} ${RELEASE:+build/release.hxml} "${EXTRAOPTS[@]}" &&\
 	"$AIR/bin/adl" bin-debug/application.xml
 fi;

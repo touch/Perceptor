@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<componentPackage>	
+	<component id="PerceptorWindow"			superClass="UIWindow"			fullname="prime.perceptor.view.PerceptorWindow" />
+<!--<component id="" superClass="" fullname="" />-->
+</componentPackage>
