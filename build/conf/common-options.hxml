@@ -1,0 +1,37 @@
+-main prime.perceptor.Perceptor
+
+-D no-pattern-matching #this one should be removed after moving to haxe3
+-D network-sandbox
+-D dragEnabled
+
+-swf-version 10.2
+--flash-strict
+
+
+
+
+-cp src
+-cp PrimeVC/libs/apparat
+-cp PrimeVC/libs/hxmpp
+-cp PrimeVC/libs/jac
+-cp PrimeVC/libs/as3-flexless
+-cp PrimeVC/libs/swfaddress
+-cp PrimeVC/libs/thx/src
+-cp PrimeVC/libs/macmousewheel
+-cp PrimeVC/src
+-cp PrimeVC/prime-layout/src
+-cp PrimeVC/prime-media/src
+-cp PrimeVC/prime-components/src
+-cp PrimeVC/prime-fsm/src
+-cp PrimeVC/prime-css/src
+-cp PrimeVC/prime-bindable/src
+-cp PrimeVC/prime-data/src
+-cp PrimeVC/prime-core/src
+-cp PrimeVC/prime-display/src
+-cp PrimeVC/prime-locale/src
+-cp PrimeVC/prime-mvc/src
+-cp PrimeVC/prime-signal/src
+
+-lib feffects
+#-lib hxmpp
+-lib format

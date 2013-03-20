@@ -1,0 +1,3 @@
+[submodule "PrimeVC"]
+	path = PrimeVC
+	url = git@github.com:touch/PrimeVC.git

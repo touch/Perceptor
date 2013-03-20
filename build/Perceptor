@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BUILDSCRIPTDIR="`dirname $0`"
+PRJROOT="`cd "${BUILDSCRIPTDIR}/.."; pwd`"
+PRIMEVC_DIR="${PRJROOT}/PrimeVC"
+ASSETS_DIR="${PRJROOT}/assets"
+
+#parse arguments
+while getopts ":dr" OptionName
+	do
+		case $OptionName in
+			d ) DEBUG=true;;
+			r ) RELEASE=true;;
+	esac
+done
+
+if test -z "${DEBUG}${RELEASE}"; then
+  echo "Usage:  build/Perceptor [-d | -r]
+    -d  Build debug version
+    -r  Build release version
+"
+else
+	cd "${PRJROOT}";
+	time haxe ${DEBUG:+build/debug.hxml} ${RELEASE:+build/release.hxml} && open "bin-${DEBUG:+debug}${RELEASE:+release}/"*.swf
+fi;

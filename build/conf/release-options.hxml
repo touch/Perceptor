@@ -1,0 +1,4 @@
+--no-traces
+#--dce std
+
+-swf-lib PrimeVC/assets/assets.swf

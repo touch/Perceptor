@@ -1,0 +1,11 @@
+-cp PrimeVC/libs/alcon
+-cp PrimeVC/libs/framestats
+-cp PrimeVC/libs/hiresStats
+-cp PrimeVC/libs/monsterdebugger
+
+-swf-lib PrimeVC/assets/debug-assets.swf
+#-swf-lib assets/debug-lib.swf
+
+-D noinline
+-D debug
+-debug

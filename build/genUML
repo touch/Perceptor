@@ -1,0 +1,9 @@
+#!/bin/bash
+
+BUILDSCRIPTDIR="`dirname $0`"
+PRJROOT="`cd "${BUILDSCRIPTDIR}/.."; pwd`"
+OUTPUT="bin-debug/classes.xml"
+
+cd "$PRJROOT";
+echo $OUTPUT
+bash build/Perceptor -d --xml && haxelib run haxeumlgen dot $OUTPUT

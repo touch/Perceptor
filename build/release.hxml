@@ -1,0 +1,4 @@
+build/conf/common-options.hxml
+build/conf/release-options.hxml
+
+-swf bin-release/Perceptor.swf

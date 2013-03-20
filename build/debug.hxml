@@ -1,0 +1,4 @@
+build/conf/common-options.hxml
+build/conf/debug-options.hxml
+
+-swf bin-debug/Perceptor.swf
