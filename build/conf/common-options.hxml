@@ -30,7 +30,7 @@
 -cp PrimeVC/prime-display/src
 -cp PrimeVC/prime-locale/src
 -cp PrimeVC/prime-mvc/src
--cp PrimeVC/prime-signal/src
+-cp PrimeVC/prime-signals/src
 
 -lib feffects
 #-lib hxmpp

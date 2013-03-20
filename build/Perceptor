@@ -4,22 +4,27 @@ BUILDSCRIPTDIR="`dirname $0`"
 PRJROOT="`cd "${BUILDSCRIPTDIR}/.."; pwd`"
 PRIMEVC_DIR="${PRJROOT}/PrimeVC"
 ASSETS_DIR="${PRJROOT}/assets"
+EXTRAOPTS=()
 
-#parse arguments
-while getopts ":dr" OptionName
-	do
-		case $OptionName in
-			d ) DEBUG=true;;
-			r ) RELEASE=true;;
+# Parse arguments. All unrecognized options are passed to Haxe.
+args=("$@");
+i=0;
+while [[ $i -lt $# ]]; do
+	arg="${args[$i]}";
+	case $arg in
+		-d ) DEBUG=true;;
+		-r ) RELEASE=true;;
+		*  ) EXTRAOPTS+=("${arg}") ;;
 	esac
+	i=($i+1);
 done
 
 if test -z "${DEBUG}${RELEASE}"; then
-  echo "Usage:  build/Perceptor [-d | -r]
+  echo "Usage:  build/Perceptor [-d | -r] [Haxe compiler options ...]
     -d  Build debug version
     -r  Build release version
 "
 else
 	cd "${PRJROOT}";
-	time haxe ${DEBUG:+build/debug.hxml} ${RELEASE:+build/release.hxml} && open "bin-${DEBUG:+debug}${RELEASE:+release}/"*.swf
+	time haxe ${DEBUG:+build/debug.hxml} ${RELEASE:+build/release.hxml} "${EXTRAOPTS[@]}" && open "bin-${DEBUG:+debug}${RELEASE:+release}/"*.swf
 fi;
